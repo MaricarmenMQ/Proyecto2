@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Mi Familia - Maricarmen{% endblock %}
+
+{% block contenido %}
+    <h1>👨‍👩‍👧‍👦 Mi Entorno Social y Familia</h1>
+    
+    {% for grupo, personas in entorno_social.items %}
+        <div class="seccion">
+            <div class="titulo-seccion">
+                {% if grupo == 'padres' %}
+                    💑 {{ titulos_familia.padres }}
+                {% elif grupo == 'hermanos' %}
+                    👥 {{ titulos_familia.hermanos }}
+                {% elif grupo == 'sobrinos' %}
+                    👶 {{ titulos_familia.sobrinos }}
+                {% elif grupo == 'amigos' %}
+                    👭 {{ titulos_familia.amigos }}
+                {% else %}
+                    {{ grupo|title }}
+                {% endif %}
+            </div>
+            <ul class="lista">
+                {% for persona in personas %}
+                    <li class="item">{{ persona }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+{% endblock %}

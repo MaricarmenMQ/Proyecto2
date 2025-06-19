@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Mis Habilidades - Maricarmen{% endblock %}
+
+{% block contenido %}
+    <h1>⚡ Mis Habilidades y Aptitudes</h1>
+    
+    {% for categoria, lista_habilidades in habilidades.items %}
+        <div class="seccion">
+            <div class="titulo-seccion">
+                {% if categoria == 'idiomas' %}
+                    🌐 {{ titulos_habilidades.idiomas }}
+                {% elif categoria == 'tecnicas' %}
+                    🛠️ {{ titulos_habilidades.tecnicas }}
+                {% elif categoria == 'personales' %}
+                    ✨ {{ titulos_habilidades.personales }}
+                {% else %}
+                    {{ categoria|title }}
+                {% endif %}
+            </div>
+            <ul class="lista">
+                {% for habilidad in lista_habilidades %}
+                    <li class="item">{{ habilidad }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+{% endblock %}

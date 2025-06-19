@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Mis Gustos - Maricarmen{% endblock %}
+
+{% block contenido %}
+    <h1>💝 Mis Gustos e Intereses</h1>
+    
+    {% for categoria, items in mis_gustos.items %}
+        <div class="seccion">
+            <div class="titulo-seccion">
+                {% if categoria == 'pasatiempos' %}
+                    🎨 {{ titulos_gustos.pasatiempos }}
+                {% elif categoria == 'comida_favorita' %}
+                    🍝 {{ titulos_gustos.comida_favorita }}
+                {% elif categoria == 'mascotas' %}
+                    🐕 {{ titulos_gustos.mascotas }}
+                {% else %}
+                    {{ categoria|title }}
+                {% endif %}
+            </div>
+            <ul class="lista">
+                {% for item in items %}
+                    <li class="item">{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Mis Datos Personales - Maricarmen{% endblock %}
+
+{% block contenido %}
+    <div class="encabezado-seccion">
+        <div class="foto-perfil"></div>
+        <h1>{{ nombre }}</h1>
+    </div>
+    
+    <div class="info-personal">
+        {% for etiqueta, valor in info_items %}
+            <div class="dato">
+                <span class="etiqueta">{{ etiqueta }}</span>
+                <span class="valor">{{ valor }}</span>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
